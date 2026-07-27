@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Extract Frames from a GIF | GifToFrames Guide</title>
+    <meta name="description" content="Learn how GIF frame extraction works, including complete frame composition, transparency, disposal methods, frame delays, export formats, privacy, limits, and troubleshooting." />
+    <link rel="canonical" href="https://www.giftoframes.net/guide/" />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="GifToFrames" />
+    <meta property="og:title" content="How to Extract Frames from a GIF" />
+    <meta property="og:description" content="A practical guide to extracting full GIF frames with timing, transparency, disposal behavior, export formats, and browser-local privacy notes." />
+    <meta property="og:url" content="https://www.giftoframes.net/guide/" />
+    <meta property="og:image" content="https://www.giftoframes.net/og/giftoframes-og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How to Extract Frames from a GIF" />
+    <meta name="twitter:description" content="Steps, frame timing, disposal behavior, transparency, privacy, limits, and troubleshooting for GIF frame extraction." />
+    <meta name="twitter:image" content="https://www.giftoframes.net/og/giftoframes-og.png" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="GifToFrames home">
+        <img src="/favicon.svg" alt="" width="32" height="32" />
+        <span>GifToFrames</span>
+      </a>
+      <nav class="top-nav" aria-label="Primary navigation">
+        <a href="/">Tool</a>
+        <a aria-current="page" href="/guide/">Guide</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+      </nav>
+    </header>
+    <main class="article-shell">
+      <article class="article">
+        <p class="eyebrow">Practical guide</p>
+        <h1>How to extract frames from a GIF</h1>
+        <p>
+          GIF frame extraction is more than saving every raw patch inside the file. Many animated GIFs store only the rectangle that changed, use
+          transparent pixels, and tell the player what to do with the previous frame before the next one appears. A reliable extractor composes
+          each display frame before exporting it.
+        </p>
+        <p>
+          <a class="text-cta" href="/">Open the GIF to frames tool</a>
+        </p>
+
+        <h2>Steps</h2>
+        <ol>
+          <li>Choose or drop a GIF file you own or are allowed to process.</li>
+          <li>Wait for the browser worker to decode and compose the frames.</li>
+          <li>Preview the animation, scrub by frame, and inspect frame delays.</li>
+          <li>Select all frames, clear the selection, or select a range such as 12-24.</li>
+          <li>Download a single frame, all frames, or selected frames as an ordered ZIP.</li>
+        </ol>
+
+        <h2>Output formats</h2>
+        <p>
+          PNG is the default because it preserves transparency. WebP is available when the browser can encode it. JPEG does not support alpha, so
+          GifToFrames places the frame on your chosen background color and uses the selected quality value.
+        </p>
+
+        <h2>Frame timing and disposal</h2>
+        <p>
+          GIF frames can have different delays, commonly measured in milliseconds after decoding. The extractor shows the total duration and the
+          per-frame delay so you can identify holds, flashes, or uneven timing. Disposal method 2 clears the frame rectangle for the next frame.
+          Disposal method 3 restores the previous canvas state. Both behaviors matter for GIFs with partial updates.
+        </p>
+
+        <h2>Privacy and memory</h2>
+        <p>
+          The selected GIF is processed in the browser. It is not uploaded to a conversion endpoint, stored in a database, or included in analytics.
+          Static hosting still serves the page assets, and your browser creates temporary in-memory frame data and object URLs while you work.
+          Large GIFs can exceed browser memory, especially on mobile devices; use reset to clear the current file before opening another one.
+        </p>
+
+        <h2>Troubleshooting</h2>
+        <ul>
+          <li>If the file is rejected, confirm it is a GIF and not a renamed video or WebP file.</li>
+          <li>If decoding stops with a resource-limit message, try a smaller GIF or reduce the source dimensions before extraction.</li>
+          <li>If a downloaded JPEG has a solid background, that is expected because JPEG cannot store transparent pixels.</li>
+          <li>If browser memory is low, close other heavy tabs, reset the tool, and retry with fewer selected frames.</li>
+          <li>If frame timing looks wrong, compare the delay values shown beside each thumbnail; some GIFs intentionally mix very short and long holds.</li>
+        </ul>
+
+        <h2>Legal use</h2>
+        <p>
+          Extract frames only from GIFs you created, own, or are authorized to process. The tool does not grant permission to copy, republish,
+          or redistribute someone else's animation.
+        </p>
+      </article>
+    </main>
+  </body>
+</html>

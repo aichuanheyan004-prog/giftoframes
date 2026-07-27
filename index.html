@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GIF to Frames - Extract PNG Frames in Your Browser | GifToFrames</title>
+    <meta name="description" content="Extract complete frames from an animated GIF locally in your browser. Preview timing, select frame ranges, and download ordered PNG, WebP, or JPEG frames as a ZIP." />
+    <link rel="canonical" href="https://www.giftoframes.net/" />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="GifToFrames" />
+    <meta property="og:title" content="GIF to Frames - Browser Local GIF Frame Extractor" />
+    <meta property="og:description" content="Upload a GIF, preview every composed frame, choose the frames you need, and download ordered image files without uploading the GIF to a conversion server." />
+    <meta property="og:url" content="https://www.giftoframes.net/" />
+    <meta property="og:image" content="https://www.giftoframes.net/og/giftoframes-og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="GIF to Frames - Browser Local GIF Frame Extractor" />
+    <meta name="twitter:description" content="Extract complete PNG, WebP, or JPEG frames from GIFs in your browser with timing preview and ZIP export." />
+    <meta name="twitter:image" content="https://www.giftoframes.net/og/giftoframes-og.png" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": ["WebApplication", "SoftwareApplication"],
+        "name": "GifToFrames",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Windows, macOS, Linux, iOS, Android",
+        "url": "https://www.giftoframes.net/",
+        "description": "Browser-local tool for extracting complete frames from animated GIF files and downloading ordered PNG, WebP, or JPEG frames.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "Local GIF file processing",
+          "Composed GIF frame preview",
+          "Frame range selection",
+          "PNG, WebP, JPEG and ZIP export"
+        ],
+        "browserRequirements": "Requires a modern browser with Web Worker, Canvas, Blob and file download support."
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root">
+      <header class="site-header">
+        <a class="brand" href="/" aria-label="GifToFrames home">
+          <img src="/favicon.svg" alt="" width="32" height="32" />
+          <span>GifToFrames</span>
+        </a>
+        <nav class="top-nav" aria-label="Primary navigation">
+          <a href="/guide/">Guide</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="/terms/">Terms</a>
+        </nav>
+      </header>
+      <main class="shell">
+        <section class="tool-hero" aria-labelledby="fallback-title">
+          <div class="tool-copy">
+            <p class="eyebrow">GIF frame extractor</p>
+            <h1 id="fallback-title">Extract complete frames from a GIF</h1>
+            <p>
+              Upload an animated GIF to split it into composed image frames. The app is designed for local browser processing:
+              your GIF is not uploaded to a conversion server.
+            </p>
+          </div>
+          <div class="fallback-uploader" aria-label="Tool loading">
+            <strong>Loading the GIF to frames tool...</strong>
+            <p>If JavaScript is disabled, the interactive extractor cannot run. The guide, privacy notes, and terms are available through the navigation links.</p>
+          </div>
+        </section>
+        <section class="content-section">
+          <h2>What this tool does</h2>
+          <p>
+            GifToFrames extracts full display frames from animated GIF files, including GIFs that use transparency, local frame rectangles,
+            varied frame delays, and disposal methods. Exported files use ordered names such as
+            <code>animation_frame_0001.png</code>.
+          </p>
+          <p>
+            Use it only with GIFs you own or are authorized to process. It does not fetch third-party URLs, bypass protected media,
+            create public result pages, or store uploaded files.
+          </p>
+          <p>
+            <a href="/guide/">Read the complete guide to extracting GIF frames</a>.
+          </p>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
