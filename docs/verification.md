@@ -40,9 +40,13 @@ Date: 2026-07-27
 
 ## Known Deployment Checks Still Required
 
-- GitHub remote creation and push.
 - Vercel project creation.
 - Production deployment verification.
 - Domain binding and redirects for `giftoframes.net` and `www.giftoframes.net`.
 - HTTPS certificate, canonical host, robots, sitemap, OG image, and production mobile checks.
 - Google Search Console property and sitemap submission after DNS is live.
+
+## Deployment Progress
+
+- GitHub repository created by the user at `https://github.com/aichuanheyan004-prog/giftoframes`.
+- Local `main` pushed to `origin/main` over SSH on 2026-07-27.
