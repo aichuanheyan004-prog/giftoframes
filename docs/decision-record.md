@@ -141,11 +141,12 @@ Expand only if GSC shows distinct query intent or user feedback that cannot be h
 ## Open Assumptions
 
 - The current target market is US English.
-- Search Console access has not yet been authorized; indexing and query evidence must be reviewed after a property and sitemap are added.
+- Search Console indexing and query evidence must be reviewed after the new property has collected data.
 
 ## Resolved Launch Facts
 
 - GitHub and Vercel access were completed through their web interfaces.
-- Namecheap DNS control was confirmed and the exact Vercel-provided A and CNAME records were installed.
+- Namecheap DNS control was confirmed. Both apex A endpoints timed out from the launch network, so the final compatible setup uses an apex ALIAS and `www` CNAME to the same Vercel project target.
 - `www.giftoframes.net` is the HTTPS production host; the apex domain redirects to it with Vercel's permanent `308` configuration.
+- Google Search Console domain ownership was verified by DNS TXT and the canonical sitemap was submitted successfully with four discovered pages.
 - Version one remains analytics-free, with no cookies or file-content telemetry added during deployment.
