@@ -38,15 +38,28 @@ Date: 2026-07-27
 - Desktop and 390px mobile viewport checks for console errors and horizontal overflow.
 - `/`, `/guide/`, `/privacy/`, `/terms/`, `/404.html`, `/robots.txt`, and `/sitemap.xml`.
 
-## Known Deployment Checks Still Required
+## Production Deployment Verification
 
-- Vercel project creation.
-- Production deployment verification.
-- Domain binding and redirects for `giftoframes.net` and `www.giftoframes.net`.
-- HTTPS certificate, canonical host, robots, sitemap, OG image, and production mobile checks.
-- Google Search Console property and sitemap submission after DNS is live.
+- Vercel project `giftoframes` imported from `aichuanheyan004-prog/giftoframes`; production deployment for commit `c7f7b8d` reached `Ready`.
+- Temporary deployment URL `https://giftoframes-lyart.vercel.app/` passed sample parsing, playback/step controls, range selection, single-frame download, selected ZIP download, invalid-file handling, reset, and console checks.
+- Namecheap DNS now uses Vercel's current project-specific records: `A @ 216.198.79.1` and `CNAME www d5ddaa126c267d46.vercel-dns-017.com.`.
+- Vercel reports `Valid Configuration` for both `giftoframes.net` and `www.giftoframes.net`; certificates were issued successfully.
+- `http://giftoframes.net/` resolves to `https://www.giftoframes.net/`; Vercel shows the apex redirect as `308`.
+- The canonical production host passed sample parsing, `2-3` range selection, a two-file selected ZIP download, and a zero-console-error check.
+- `/`, `/guide/`, `/privacy/`, and `/terms/` have unique title/H1 metadata, `index,follow`, and self-canonicals on `https://www.giftoframes.net/`.
+- A nonexistent path renders the real `Page not found` page with `noindex,follow` and no canonical.
+- Production `robots.txt` points to the canonical sitemap; `sitemap.xml` lists the four intended indexable URLs.
+- The production OG image decoded at `1200x630`; the homepage JSON-LD contains `WebApplication` and `SoftwareApplication` without ratings or user-count claims.
+- In-app browser checks covered the live narrow/mobile layout with no horizontal overflow; automated Playwright coverage separately passed desktop Chromium and exact 390px viewports.
+
+## Post-launch Measurement Still Required
+
+- Add the domain to Google Search Console and submit `https://www.giftoframes.net/sitemap.xml` once a suitable Google account is authorized.
+- No analytics were enabled for version one; this is an intentional privacy decision rather than an incomplete installation.
 
 ## Deployment Progress
 
 - GitHub repository created by the user at `https://github.com/aichuanheyan004-prog/giftoframes`.
 - Local `main` pushed to `origin/main` over SSH on 2026-07-27.
+- Vercel project created at `https://vercel.com/chun5/giftoframes` and connected to the GitHub `main` branch.
+- Canonical production URL launched at `https://www.giftoframes.net/` on 2026-07-27.

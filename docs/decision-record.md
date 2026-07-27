@@ -141,5 +141,11 @@ Expand only if GSC shows distinct query intent or user feedback that cannot be h
 ## Open Assumptions
 
 - The current target market is US English.
-- Vercel and GitHub account access will be available through existing CLI/browser sessions.
-- DNS for `giftoframes.net` is under user control; final DNS records may need one user-side registrar step.
+- Search Console access has not yet been authorized; indexing and query evidence must be reviewed after a property and sitemap are added.
+
+## Resolved Launch Facts
+
+- GitHub and Vercel access were completed through their web interfaces.
+- Namecheap DNS control was confirmed and the exact Vercel-provided A and CNAME records were installed.
+- `www.giftoframes.net` is the HTTPS production host; the apex domain redirects to it with Vercel's permanent `308` configuration.
+- Version one remains analytics-free, with no cookies or file-content telemetry added during deployment.
