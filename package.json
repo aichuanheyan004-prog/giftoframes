@@ -13,7 +13,9 @@
     "fixtures": "node scripts/generate-fixtures.mjs",
     "og": "node scripts/create-og-image.mjs",
     "visual-check": "node scripts/visual-check.mjs",
-    "audit:static": "node C:/Users/chunk/.codex/skills/gefei-site-builder/scripts/audit_static_site.mjs dist"
+    "audit:static": "node C:/Users/chunk/.codex/skills/gefei-site-builder/scripts/audit_static_site.mjs dist",
+    "indexnow": "node scripts/submit-indexnow.mjs",
+    "indexnow:live": "node scripts/submit-indexnow.mjs --live"
   },
   "dependencies": {
     "fflate": "latest",
