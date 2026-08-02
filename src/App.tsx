@@ -360,6 +360,7 @@ export function App() {
         </a>
         <nav className="top-nav" aria-label="Primary navigation">
           <a href="/guide/">Guide</a>
+          <a href="/blog/">Blog</a>
           <a href="/privacy/">Privacy</a>
           <a href="/terms/">Terms</a>
         </nav>
