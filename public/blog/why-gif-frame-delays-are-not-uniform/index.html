@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why GIF Frame Delays Are Not Always Uniform</title>
+  <meta name="description" content="Learn why GIF frames can have different delays, how timing is stored, and how to preserve animation speed when extracting frames.">
+  <link rel="canonical" href="https://www.giftoframes.net/blog/why-gif-frame-delays-are-not-uniform/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="article"><meta property="og:site_name" content="GIF to Frames">
+  <meta property="og:title" content="Why GIF Frame Delays Are Not Always Uniform">
+  <meta property="og:description" content="Understand per-frame GIF timing and preserve it when rebuilding or analyzing an animation.">
+  <meta property="og:url" content="https://www.giftoframes.net/blog/why-gif-frame-delays-are-not-uniform/"><meta property="og:image" content="https://www.giftoframes.net/og-image.png">
+  <meta name="twitter:card" content="summary"><meta name="twitter:title" content="Why GIF Frame Delays Are Not Always Uniform"><meta name="twitter:description" content="Understand per-frame GIF timing and preserve it when rebuilding or analyzing an animation."><meta name="twitter:image" content="https://www.giftoframes.net/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Why GIF Frame Delays Are Not Always Uniform","description":"Learn why GIF frames can have different delays, how timing is stored, and how to preserve animation speed when extracting frames.","datePublished":"2026-08-05","dateModified":"2026-08-05","inLanguage":"en","author":{"@type":"Organization","name":"GIF to Frames","url":"https://www.giftoframes.net"},"publisher":{"@type":"Organization","name":"GIF to Frames","url":"https://www.giftoframes.net","logo":{"@type":"ImageObject","url":"https://www.giftoframes.net/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.giftoframes.net/blog/why-gif-frame-delays-are-not-uniform/"}}</script>
+  <link rel="stylesheet" href="/blog.css">
+</head>
+<body><div class="blog-shell">
+  <header class="blog-header"><div class="blog-nav"><a class="brand" href="/">GIF to Frames</a><nav class="nav-links" aria-label="Primary navigation"><a href="/">Home</a><a href="/guide/">Guide</a><a href="/blog/" aria-current="page">Blog</a></nav></div></header>
+  <main class="blog-main"><article class="article-wrap">
+    <header class="article-header"><p class="eyebrow">GIF timing guide</p><h1>Why GIF Frame Delays Are Not Always Uniform</h1><div class="post-meta"><time datetime="2026-08-05">2026-08-05</time><span>5 min read</span></div><p class="lede">A GIF can pause on one frame and rush through another because delay belongs to each frame, not only to the animation as a whole.</p></header>
+    <div class="answer"><strong>The direct answer</strong><p>Preserve every frame's delay value when analyzing or rebuilding a GIF; using one average rate can change pauses, rhythm, and total duration.</p></div>
+    <div class="article-body">
+      <h2>GIF timing is stored per frame</h2>
+      <p>The GIF89a Graphic Control Extension can specify a delay time before the next frame is rendered. The unit is one hundredth of a second. A value of 10 therefore represents 0.10 seconds in the file. Frames in the same animation can carry different values.</p>
+      <h2>Why creators use unequal delays</h2>
+      <ul>
+        <li>Hold a title card long enough to read.</li>
+        <li>Pause at the end of a gesture before the loop restarts.</li>
+        <li>Simulate a blink or impact with a very short frame.</li>
+        <li>Save frames by holding a mostly static image longer.</li>
+        <li>Create intentionally irregular, hand-drawn timing.</li>
+      </ul>
+      <p>Forcing those frames to a fixed frame rate can make a readable caption flash too quickly or turn a deliberate pause into a mechanical loop.</p>
+      <h2>Worked example</h2>
+      <table><thead><tr><th>Frame</th><th>Stored delay</th><th>Time</th><th>Purpose</th></tr></thead><tbody>
+        <tr><td>1</td><td>50</td><td>0.50 s</td><td>Title hold</td></tr>
+        <tr><td>2</td><td>8</td><td>0.08 s</td><td>Movement</td></tr>
+        <tr><td>3</td><td>8</td><td>0.08 s</td><td>Movement</td></tr>
+        <tr><td>4</td><td>34</td><td>0.34 s</td><td>End pose</td></tr>
+      </tbody></table>
+      <p>The loop lasts 1.00 second. Rebuilding it as four equal 0.25-second frames keeps the total duration but destroys the intended title hold and movement speed. Total duration alone is not enough; the sequence of delays matters.</p>
+      <h2>How to inspect timing with GIF to Frames</h2>
+      <ol>
+        <li>Select an authorized GIF and wait for local decoding.</li>
+        <li>Review the frame list and the delay shown for each frame.</li>
+        <li>Record or export the timing data before editing individual images.</li>
+        <li>If you rebuild the animation elsewhere, enter each original delay rather than one average value.</li>
+        <li>Compare the rebuilt loop beside the source in more than one current browser.</li>
+      </ol>
+      <h2>Why very short delays can behave differently</h2>
+      <p>Historically, viewers have applied their own minimum delay to extremely small or zero values. As a result, two browsers or image tools may not play a malformed or aggressively timed GIF identically. Do not rely on a zero-delay frame for precise video-like timing. Test the destination and use a video format when exact playback cadence is essential.</p>
+      <h2>Timing is not the only frame rule</h2>
+      <p>A GIF frame may update only part of the canvas. Disposal instructions tell a decoder what to do with the previous image before drawing the next one. Exporting raw patches without compositing them can produce incomplete frames. The tool presents composited frames for practical extraction, while timing remains separate metadata.</p>
+      <h2>Common mistakes</h2>
+      <ul>
+        <li>Assuming all frames use one FPS value.</li>
+        <li>Replacing individual delays with their average.</li>
+        <li>Ignoring zero or unusually short values without testing playback.</li>
+        <li>Confusing frame delay with disposal behavior.</li>
+        <li>Expecting a folder of PNG files to preserve animation timing by itself.</li>
+      </ul>
+      <p>The <a href="https://www.w3.org/Graphics/GIF/spec-gif89a.txt">GIF89a specification</a> defines delay and disposal fields. For the complete extraction process, read <a href="/blog/extract-every-gif-frame/">how to extract every GIF frame</a> and the <a href="/guide/">tool guide</a>.</p>
+    </div>
+    <div class="article-footer"><a class="button-link" href="/">Extract GIF frames</a><a class="button-link secondary" href="/guide/">Read the guide</a></div>
+  </article></main>
+  <footer class="blog-footer"><div class="blog-nav"><span>GIF to Frames publishes practical, source-aware tutorials.</span><nav class="nav-links" aria-label="Footer navigation"><a href="/">Tool</a><a href="/guide/">Guide</a><a href="/blog/">Blog</a></nav></div></footer>
+</div></body>
+</html>
